@@ -1,0 +1,15 @@
+import {addParameters, addDecorator} from "@storybook/react";
+import {withContexts} from "@storybook/addon-contexts/dist/preview/frameworks/react";
+import {contexts} from "./contexts";
+
+// addDecorator()
+
+addParameters({
+    background: [
+        {name: "Default theme", value: "#ffffff", default: true},
+        {name: "Dark theme", value: "#050449"}
+    ]
+})
+
+// @ts-ignore
+// addDecorator(withContexts(contexts))

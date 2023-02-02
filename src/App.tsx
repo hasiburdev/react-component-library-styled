@@ -9,11 +9,28 @@ import {SignUpModal} from "./components";
 
 function App() {
     const [useDarkTheme, setUseDarkTheme] = useState(false);
+    const [showModal, setShowModal] = useState(false);
   return (
     <ThemeProvider theme={useDarkTheme ? darkTheme : defaultTheme}>
         <GlobalStyle />
-        <button onClick={() => setUseDarkTheme(true)} style={{ margin: "0 16px 24px", padding: "8px", background: "none" }}>Dark Theme</button>
-        <button onClick={() => setUseDarkTheme(false)} style={{ margin: "0 16px 24px", padding: "8px", background: "none" }}>Default Theme</button>
+        <button
+            onClick={() => setUseDarkTheme(true)}
+            style={{ margin: "0 16px 24px", padding: "8px", background: "none" }}
+        >
+            Dark Theme
+        </button>
+        <button
+            onClick={() => setUseDarkTheme(false)}
+            style={{ margin: "0 16px 24px", padding: "8px", background: "none" }}
+        >
+            Default Theme
+        </button>
+        <button
+            onClick={() => setShowModal(!showModal)}
+            style={{ margin: "0 16px 24px", padding: "8px", background: "none" }}
+        >
+            Toggle Modal
+        </button>
         <div style={{
             background: !useDarkTheme ? darkTheme.primaryColor : defaultTheme.primaryColor,
             width: "100vw",
@@ -22,12 +39,13 @@ function App() {
             alignItems: "center",
             justifyContent: "space-around"
         }}>
-            <PrimaryButton >Hello World!</PrimaryButton>
-            <SecondaryButton >Hello World!</SecondaryButton>
-            <TertiaryButton >Hello World!</TertiaryButton>
-            <SignUpModal />
+            <PrimaryButton>Hello World!</PrimaryButton>
+            <SecondaryButton>Hello World!</SecondaryButton>
+            <TertiaryButton>Hello World!</TertiaryButton>
+            <SignUpModal showModal={showModal} setShowModal={setShowModal} />
 
         </div>
+
     </ThemeProvider>
   );
 }
